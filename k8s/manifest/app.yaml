@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: template-service
+  namespace: template_project
+  labels:
+    run: template-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: template-service
+  template:
+    metadata:
+      labels:
+        run: template-service
+    spec:
+      containers:
+        - image: template-service
+          imagePullPolicy: Never
+          name: template-service
+          #资源需求
+          resources:
+            requests:
+              memory: 2G
+            limits:
+              memory: 2G
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: test
+#            - name: SPRING_DATASOURCE_USERNAME
+#              value: 'db_user_name'
+#            - name: SPRING_DATASOURCE_PASSWORD
+#              value: "du_user_pwd"
+#          volumeMounts:
+#            - name: logs-file
+#              mountPath: /app/logs/
+#      volumes:
+#      - name: logs-file
+#        persistentVolumeClaim:
+#          claimName: logs-file
+

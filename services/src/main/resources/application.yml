@@ -1,0 +1,50 @@
+server:
+  servlet:
+    context-path: /api
+    application-display-name: template-service
+  port: 9090
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  profiles:
+    active: dev
+  application:
+    name: template-simple-service
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  freemarker:
+    check-template-location: false
+  thymeleaf:
+    check-template-location: false
+    cache: false
+  task:
+    scheduling:
+      pool:
+        size: 2
+    execution:
+      pool:
+        core-size: 4
+
+application-description: '@project.description@'
+application-version: '@project.version@'
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    show-extensions: true
+    show-common-extensions: true
+
+knife4j:
+  enable: true
+  production: false
+
+logging:
+  config: classpath:logback-spring.xml
