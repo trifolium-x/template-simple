@@ -1,3 +1,6 @@
+application-description: '@project.description@'
+application-version: '@project.version@'
+
 server:
   servlet:
     context-path: /api
@@ -8,12 +11,11 @@ server:
       enabled: false
 
 spring:
+  profiles:
+    active: dev
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-
-  profiles:
-    active: dev
   application:
     name: template-simple-service
   jackson:
@@ -32,9 +34,6 @@ spring:
       pool:
         core-size: 4
 
-application-description: '@project.description@'
-application-version: '@project.version@'
-
 springdoc:
   api-docs:
     enabled: true
@@ -48,3 +47,39 @@ knife4j:
 
 logging:
   config: classpath:logback-spring.xml
+
+
+---
+# dev ###########################
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+---
+# test ###########################
+spring:
+  config:
+    activate:
+      on-profile: test
+
+---
+# uat ###########################
+spring:
+  config:
+    activate:
+      on-profile: uat
+
+---
+# prod ###########################
+spring:
+  config:
+    activate:
+      on-profile: prod
+debug: false
+springdoc:
+  api-docs:
+    enabled: false
+knife4j:
+  enable: false
+  production: true

@@ -1,9 +1,0 @@
-debug: false
-
-springdoc:
-  api-docs:
-    enabled: false
-
-knife4j:
-  enable: false
-  production: true
