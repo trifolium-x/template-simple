@@ -17,7 +17,7 @@ public class RunApplication {
 
     public static void main(String[] args) {
 
-        log.info("应用启动标记--date:{}", DateUtil.getDateStr());
+        log.info("应用启动标记--time:{}", DateUtil.getDatetimeStr());
         SpringApplication.run(RunApplication.class, args);
     }
 }
