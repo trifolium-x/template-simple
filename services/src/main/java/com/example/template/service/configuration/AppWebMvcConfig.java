@@ -119,7 +119,7 @@ public class AppWebMvcConfig implements WebMvcConfigurer, ErrorController {
         }
 
         if (exception instanceof MissingServletRequestParameterException msrpe) {
-            return "parameters are missing:" + msrpe.getParameterName();
+            return "parameter is missing:" + msrpe.getParameterName();
         }
 
         return null;
