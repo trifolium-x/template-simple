@@ -1,4 +1,4 @@
-package com.example.template.service.api;
+package com.example.template.service.controller;
 
 import com.example.template.common.response.ResponseResult;
 import com.example.template.service.service.TestService;
@@ -11,20 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.inject.Inject;
 
 /**
- * @title: TestApi
+ * @title: TestController
  * @author: trifolium
  * @date: 2024/2/1
- * @modified :
  */
 @Tag(name = "test")
 @RestController
 @RequestMapping("/test")
-public class TestApi {
+public class TestController {
 
     private final TestService testService;
 
     @Inject
-    public TestApi(TestService testService) {
+    public TestController(TestService testService) {
         this.testService = testService;
     }
 
